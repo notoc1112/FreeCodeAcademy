@@ -1,0 +1,38 @@
+Form Question Ideas:
+
+Name
+
+Email
+
+(Phone Number?)
+
+How often do you play games? ______ hours per -day -week -month -year
+
+Favorite Gaming Genres:
+-Action
+-Puzzle
+-FPS
+-RPG
+-Strategy
+-Indie
+-Platformer 
+-Story-Driven
+-MOBA
+-Battle Royale
+
+---
+LAYOUT
+
+header
+
+Para
+
+l1: Name(first) Name(last)
+
+l2: email
+
+l3: Game frequency (hours per -d-w-m-y)
+
+l4: Year you activated seam profile (number with limited range)
+
+l5: Genres

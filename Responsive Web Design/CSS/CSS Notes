@@ -1,0 +1,46 @@
+Basics:
+CSS provides properties that tweak html elements.
+
+CSS applications:
+	-inline CSS (example: <h2 style="color: red;">header text</h2>)(where CSS code is 'style="color: red;"')
+	-CSS selectors: (sets rules for all designated elements near top of page)
+     	  <style>
+	    h2 {
+	      color: red;
+	    }
+    	  </style>
+	-Classes: (set a class in style element that can be called with class attribute
+	  <style>
+	    .red-text{
+		color:red
+	     }
+	  </style>
+	  ---
+	  <h2 class="red-text">text</h2> (can have multiple classes in single call; separate by single space)
+	-id attributes: if an element has an id attribute (e.g. <h2 id="neds-page">) it can be styled in CSS (#neds-page)
+	-attribute selector [attr=value] for example: [type="radio"]{coding goes here}
+
+-Styles are inherited from parent elements. For instance, a color style in a <body> element will apply to text within that element, such as <headers> or <paragraphs>
+-Classes can override CSS for a particular element.
+-A class declaration that follows a previous class declaration will override it if it conflicts. Note that while the order of classes called in the element itself is not important, the order of declarations IS)
+-id attributes will override classes
+-inline styles will override all over the above.
+-if experiencing difficulty with overrides, add "! important" to a CSS declaration to give it precedence.
+
+Variables:
+-To assign a variable, use "--variable-name". Its value can be called to any other property in css with "var(--variable name, fallback value)"
+-creating a :root variable in your css will allow you to assign variables that will be applied throughout your code. Those variables will be overwritten if reassigned in specific elements.
+
+Colors:
+-Colors are also notated in Hexidecimal Notation (each digit has 16 values: 0-9 and A-F) with a 6-digit sequence: RRGGBB. 0 is the lowest and F is the highest. Do more research later about how to fine tune mixes for precise color designation.
+-Can also do a 3-digit (RGB) hex code to simplify, but will be less precise. (~4,000 colors vs. ~16,000,000)
+-Colors can also be notated with "rgb(value, value, value)" with each argument ranging from 0 to 255
+
+CSS Properties:
+	color
+	font-size (in pixels, i.e. 30px)(can be in absolute units (px, in, mm) or relative units (em, rem))
+	font-family (note: search for font libraries, but for now, you can use the Google Font Library. Free)
+	width (in pixels)
+	border (-style, -color, -width, -radius(as pixels or as percentage. Rounding))
+	margin (space between element border and surrounding elements (increase to make element smaller)(-top, -bottom, -left, -right)(-top, -bottom, -left, -right)(note clockwise notation. Can specify all measurements in a single line: t-r-b-l)
+	padding (space between element content and borders)(-top, -bottom, -left, -right)(note clockwise notation. Can specify all measurements in a single line: t-r-b-l)

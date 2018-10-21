@@ -1,0 +1,36 @@
+(Note: many of these tools are implemented in CSS3)
+
+Media Queries: CSS rules to set based on the size of the device your content is viewed on.
+
+usage:
+@media(/*condition*/) {/* CSS Rules */}
+
+Example: 
+/*reduced font size for a device of a height 800px or less*/
+  @media(max-height: 800px) {
+    p {
+      font-size: 10px;
+    }
+  }
+
+
+---
+Responsive Image Size:
+/*an image scaled to the size of its containing element while not exceeding its original element*/
+img {
+  max-width: 100%;
+  display: block; /*further study: difference between block and inline*/
+  height: auto;
+}
+---
+"Retina Display"
+Defining an image in CSS as half of its height and width will optimize it for higher-resolution displays.
+---
+Responsive Typography
+
+Use Viewport Units to set text size to be relative to the size of the device viewing it:
+
+vw: 10vw would be 10% of the viewport's width.
+vh: 3vh would be 3% of the viewport's height.
+vmin: 70vmin would be 70% of the viewport's smaller dimension (height vs. width).
+vmax: 100vmax would be 100% of the viewport's bigger dimension (height vs. width).

@@ -1,0 +1,58 @@
+CSS3 flexbox allows for more control over positioning of contained elements.
+
+Give a parent element attribute of "display: flex;" in CSS to turn that element into a flex container.
+
+---
+
+flex-direction determines whether contained elements are organized in a row or a column.
+(values: row, column, row-reverse, column-reverse. row is default.
+
+https://www.w3.org/TR/css-flexbox-1/images/flex-direction-terms.svg
+
+Image displays an example of the distinction between "main axis" and "cross-axis". Main axis is the line that travels through the elements in the direction along which they are lined. (for rows, this line is horizontal)
+
+THE FOLLOWING APPLY TO THE CONTAINING ELEMENT
+---
+
+justify-content adjusts how the items are aligned along the main axis:
+"center" centers everything in the element.
+"flex-start" aligns items to the start of the container
+"flex-end" aligns them toward the end of the container
+"space-between" aligns them centrally, while putting space between each item as it is spread evenly. The first item will be at the very start of the container, while the last item will be at the very end of the container.
+"space-around" similar to space-between, except that the outermost elements also have space between them and the start/end of the container.
+
+---
+align-items aligns items along the cross:
+"flex-start" aligns to the start. So note, that for a row, this will be the top of the container, not the left (as in justify-content)
+"flex-end" aligns to the end.
+"center" aligns to the center. For rows, this will create space above and below. For columns, space is made to the left and right.
+"stretch" stretches items to fill the container. (NEED MORE CLARIFICATION ON HOW ALIGN ITEMS COMPRESSES AND STRETCHES
+"baseline" (direct quote from FCC)align items to their baselines. Baseline is a text concept, think of it as the line that the letters sit on. (experiment more with this)
+
+---
+
+flex-wrap: one thing to note is that when a container is in flex, the items will by default be fitted into one line. Flex-wrap creates a second row/column to allow items to extend into their original designated length.
+values:
+nowrap (default)
+wrap: self-expanatory
+wrap-reverse: goes bottom to top if items are in a row or right to left in columns (play with this for more examples of the difference)
+
+THE FOLLOWING APPLY TO THE CONTENT ELEMENTS
+---
+flex-shrink shrinks items, using integer values to set the level of precedence for which items will shrink more. The higher the value, the more times relative to other items it will shrink.
+---
+flex-grow expands using integer values in the same way.
+
+---
+flex-basis sets the original size of an item (in px, em, % and other typical sizing units) before applying flex-shrink and grow. "auto" value sizes based on total content in the container.
+
+---
+"flex": shorthand attribute that takes arguments for flex-grow, flex-shrink, and flex basis in a single line.
+Default properties of flex are "flex: 0 1 auto;" (again, grow, shrink, basis)
+
+---
+order sets the order in which items appear along main axis. the higher the integer value, the precedence in order.
+
+---
+align-self overrides align-items attributes and sets new locations for the individual contents in a parent.
+

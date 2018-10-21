@@ -1,0 +1,67 @@
+More CSS Properties:
+	text-align: (center, justify, right, left);
+	font-weight: (bold, or in 100s (percentage?)...);
+	text-decoration: (underline, line-through,...);
+	font-style: (italic);
+	background-color: rgba(values for rgb and a float ranging from 0 to 1, to set opacity. For highlighting text for emphasis)
+	box-shadow: (h-offset v offset blur-radius spread-radius color)
+	opacity: (float between 0 and 1, 0 being transparent, 1 being opaque)
+	text-transform: (see below);
+			lowercase-	"transform me"
+			uppercase-	"TRANSFORM ME"
+			capitalize-	"Transform Me"
+			initial-		Use the default value
+			inherit-		Use the text-transform value from the parent element
+			none-				Default: Use the original text
+	line-height: (in px); -height of each line in block of text.
+	position: (relative, absolute, fixed...) (for relative: pair with top or bottom and left or right properties, defined in px, em or percentages to move in relation to normal flow position. Remember: relative positioning offsets it. in other words, to move up, offset x number of pixels from bottom, etc)(for absolute, it sets the offset relative to the parent element. Be sure parent element's position is set to relative to avoid making the offset rooted in the position of body element (may need to experiment with this to understand better))(fixed is relative to the browser window)
+	float: (left, right, ...)(pair with a width percentage (when floating left or right); removes from normal flow and width adjusts space element will ultimately occupy).
+	z-index: (int) (sets priority for overlapping elements. higher integers take priority. Without z-index definition, the latest elements in html flow get priority)
+	margin: auto -centers elements automatically
+	COLOR NOTATION: hsl((0-360), (0%-100%), (0%-100%)) (hue, saturation, lightness)- Hue designates a degree on the color wheel, saturation determines the amount of gray, and lightness the amount of black or white. For purest color, set S to 100% and L to 50%.
+	background: linear-gradient((somenumber)deg, (color), (color), (color), ...) creates a  linear gradient that smoothly transitions through specified colors at given degrees.
+	background: repeating-linear-gradient((deg), color (start(px or %)), color (stop), color (start), color (stop),...) repeating linear gradient pattern. Note that if pattern continues, the start following a stop should be the same location for continuous definition.
+	background: url(link.to.image) - usage self-evident
+	transform: scale(#) - transforms size of object to #x the size of original defined size
+	transform: skewX(#deg)/skewY(#deg) - skews along x-axis/y-axis at given degree
+
+COMPLEX SHAPES:
+	Dude... just like... copy FCC's code and practice.
+
+
+
+
+More HTML:
+	<strong>text to make bold</strong>
+	<u>text to be underlined</u>
+	<em>text to italicize</em>
+	<s>text to strikethrough</s>
+	<hr> - (horizontal line, self closing)
+
+Noted design principles: 
+	-breaking down each element into <div> elements and specifying classes for each element to set formatting. Practice more of this on your own after learning more tools.
+	-complementary colors- colors who have an opposing value (e.g. red(#FF0000) and cyan(#00FFFF) and make for striking contrast when utilized in site design)
+	-in pairs of complementary colors, one will typically be primary (e.g. red) while its opposite will be a secondary color.
+	-tertiary colors are formed by pairing a primary color with an adjacent second color (e.g. Primary red mixed with Secondary yellow make orange)
+	-split complement scheme: pairing a main color not with its direct complement, but with the two colors immediately adjacent to its complement.
+
+
+Psuedo-classes:
+-keywords that can be used to select and define a specific element state. (example: "a: hover" can set rules for an anchor element's hover state.)
+
+Animation:
+	2 steps- first, setting the properties in the element that gets animated (animation-name, and animation duration), then set a @keyframes rule that calls "animation-name" and designates specfic states at certain percentages of the animation's completion (such as position/color/background color).
+EXAMPLE:
+<style>  
+	button:hover {
+    animation-name: background-color;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+  }
+  @keyframes background-color {
+    100% {
+      background-color: #4791d0;
+    }
+  }
+</style>
+	NOTE: additional animation properties: animation-iteration-count: (# or "infinite"); animation-timing-function: (look-up-keywords); cubic-bezier(#,#,#,#) (a possible answerfor animation-timing-function, read more on use)

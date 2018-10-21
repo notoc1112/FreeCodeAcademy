@@ -1,0 +1,92 @@
+Accessibility!
+
+A friendly reminder: include descriptive "alt text" for images. Simple and descriptive. Would be read aloud by a "screen-reader app".
+
+heading element hierarchy (h1-h6): Don't just use based on size. Utilize numerical value of header to determine hierarchy properly (example: h2 should not be immediately followed by h5. And h1 should always be the topmost/title of your page.There should only be one h1 element). Adjust sizes in CSS, instead of picking the most suided h-size.
+
+More specific <div>-like elements (HTML5 only)(utilize these to make your code easier to understand and parse for those who need it for accessibility):
+	<main> main content of your page. (Should only be one of these per page)
+	<header> introductory element for the page. may include navigational links. 
+	<footer> Will usually contain copywright info and additional links
+	<nav> wrap around any groupings of links for navigation through current page or to other content on site. (Note, footer element doesn't need its own nav element, even if it contains more or repeated links)
+	<article> A sectioning element, used to wrap self-contained content. (Think blog entries, forum posts, news articles)
+	<section> Similar to article, groups thematically related content. Can be grouped inside an article, or can contain articles, as needed.
+
+FORM Accessibility:
+-utilizing labels:
+<form>
+	<label for="name">Name:</label>
+	<input type="text" id="name" name="name">
+</form>
+NOTE: for= attribute should match the input's id element to make the text clickable.  (FURTHER RESEARCH: A label for multiple input ID's? i.e. "Name" to apply to fields for First Middle and Last)
+-fieldsets:
+wrap groups of associated radio buttons inside fieldset element to denote their association. Will help screen readers to associate all elements together. legend to serve as label/instructions for selection.
+Example:
+<form>
+  <fieldset>
+    <legend>Choose one of these three items:</legend>
+    <input id="one" type="radio" name="items" value="one">
+    <label for="one">Choice One</label><br>
+    <input id="two" type="radio" name="items" value="two">
+    <label for="two">Choice Two</label><br>
+    <input id="three" type="radio" name="items" value="three">
+    <label for="three">Choice Three</label>
+  </fieldset>
+</form>
+
+Date Picker
+input type="date". may default to "text" in standard html so include a placeholder date. 
+
+datetime: inline element that can wrap around any textual reference to a date or time to provide a standardized date/time for assistive devices.
+usage:
+<time datetime="YYYY-MM-DDThh:mm:ssTZD">Date text</time> (T = separator or space; TZD = time zone designator.)
+
+Screenreader-only content:
+-Some content may need to be specified screenreader only (for visual information to be translated to readable text, like a chart being translated to a comparable sort of table).
+Use CSS to hide Screen-reader only content. Can be done in a class with some (or all) of the following rules:
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  top: auto;
+  overflow: hidden;
+}
+
+Audio content:
+-Usage example:
+<audio id="meowClip" controls>
+  <source src="audio/meow.mp3" type="audio/mpeg" />
+  <source src="audio/meow.ogg" type="audio/ogg" />
+</audio>
+controls' presence will allow for standard embedded browser controls on audio. 
+Accessibility: descriptive text adjacent, link to transcripts.
+
+<figure>: can be used for images/charts in conjunction with a contained <figcaption> to include text.
+Usage:
+<figure>
+  <img src="roundhouseDestruction.jpeg" alt="Photo of Camper Cat executing a roundhouse kick">
+  <br>
+  <figcaption>
+    Master Camper Cat demonstrates proper form of a roundhouse kick.
+  </figcaption>
+</figure>
+(images should generally have an alt attribute, but alt can be left as an empty string if the image is purely decorative or if there is already a descriptive label present)
+
+Visual contrast:
+WCAG (Web Content Accessibility Guidelines) recommend at least a 4.5 to 1 contrast ratio for standard text. (https://contrastchecker.com/ is good for practice and testing in color and greyscale)
+
+When embedding a link via anchor <a> in text, choose the most descriptive text for the link, to accomodate accessible readers that may skip parts of web content. 
+Example:
+<p>Click here for <a href="">information about batteries</a></p>
+
+accesskey attribute assigns a keyboard shortcut to the element in question.
+<a href="" accesskey="k"></a>
+(Key shortcut should be relevant to the item it's linking to)
+
+tabindex attribute allows for quick tabbing through the website. By default, link and form elements are tabbed through by order of the HTML source. if you set tabindex at 0, they will be added to this order based on the flow. set tabindex to various positive integers to specify a tab order. (Note that altering the tab order can diminish accessibility).
+
+
+
+
+

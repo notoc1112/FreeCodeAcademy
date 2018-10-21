@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+	<!--Documentation Text comes from the Python Software Foundation Docs for Python 3.7, at https://docs.python.org/3/installing/index.html-->
+	<!--TODO: Add reference section to end of page to cite python documentation-->
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif|Ubuntu+Mono|Fira+Sans" rel="stylesheet" type="text/CSS">
+		<meta name="viewport" content="device=device-width, initial scale=1.0"><!--code taken from https://www.w3schools.com/tags/tag_meta.asp-->
+		<style>
+			/**PAGE-WIDE ATTRIBUTES**/
+
+			body {
+				background: linear-gradient(135deg, #AFB5EA, #E5B9D9);
+				font-family: "IBM Plex Serif", serif;
+				width: 100vw;/*FIGURE OUT HOW TO GET 100% of the viewport with no scrooling ESPECIALLY FOR MOBILE DEVICES*/
+				height: 100vw;
+				max-width: 100%;
+			}
+
+			code {
+				font-family: "Ubuntu Mono", monospace;
+				color: #DDDDDD;
+				background-color: #444444;
+				padding: 1px;
+			}
+
+			pre {
+				font-family: "Ubuntu Mono", monospace;
+				color: #DDDDDD;
+				padding: 1px;
+			}
+
+			/**NAVIGATION**/
+			/*TODO: Media Query Rules*/
+
+			navigation {
+
+			}
+
+			.nav-title {
+				display: flex;
+				justify-content: center;
+			}
+
+			.nav-link {
+				text-decoration: none;
+				color: black;
+				font-family: "Fira Sans", sans-serif;
+				font-weight: bold;
+			}
+
+			.nav-button {
+				display: flex;
+				justify-content: center;  
+				border-style: solid;
+				border-color: #000000;
+				margin: 1px;
+				background-color: #E5B9D9;
+				padding: 20px 0;
+			}
+
+
+			/**MAIN**/
+			/*TODO Navbar implement. New font family for navbar?*/
+			/*TODO Media Query/Spacing for smaller version of page. Test on phone before too much is designated in main functioning code*/
+			.page-title {
+				display: inline-block;
+				/*border-style: solid;
+				border-color: black;*/
+				margin-left: 10%
+			}
+
+			.main-section {
+				margin: 2% 12%;
+			}
+
+			.code-block { /*UPDATE. Less wide Browser windows, text runs past confines of block. Width should not be %*/
+				display: inline-block;
+				border-style: solid;
+				border-width: 1px;
+				border-color: #AAAAAA;
+				box-shadow: 1px 1px #222222, -1px -1px #222222, 1px -1px #222222, -1px 1px #222222;
+				padding: 3px 5% 3px 3px;
+				background-color: #222222;
+			}
+
+			.sub-section {
+				margin-left: 4%;
+				margin-right: 2%;
+			}
+
+			.sub-title {
+				position: relative;
+				right: 2%;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<nav id="navbar" class="navigation">
+		  <header class="nav-title">
+		    <h1>Installing Python Modules</h1>
+		  </header>
+		  <div id="links">
+		    <a href="#Introduction" class="nav-link"><div class="nav-button">Introduction</div></a> 
+		    <a href="#Key_Terms" class="nav-link"><div class="nav-button">Key Terms</div></a>
+		    <a href="#Basic_Usage" class="nav-link"><div class="nav-button">Basic Usage</div></a>
+		    <a href="#How_do_I..." class="nav-link"><div class="nav-button">How Do I...</div></a>
+		    <a href="#Common_Installation_Issues" class="nav-link"><div class="nav-button">Common Installation Issues</div></a>
+		  </div>
+		</nav>
+		<main id="main-doc">
+		  <header  class="page-title">
+		    <h1>Installing Python Modules</h1>
+		  </header>
+		  <section id="Introduction" class="main-section">
+		    <header>
+		      <h2>Introduction</h2>
+		    </header>
+		    <p>As a popular open source development project, Python has an active supporting community of contributors and users that also make their software available for other Python developers to use under open source license terms.</p>
+		    <p>This allows Python users to share and collaborate effectively, benefiting from the solutions others have already created to common (and sometimes even rare!) problems, as well as potentially contributing their own solutions to the common pool.</p>
+		    <p>This guide covers the installation part of the process. For a guide to creating and sharing your own Python projects, refer to the distribution guide.</p>
+		    <div>
+		      <p>Note: For corporate and other institutional users, be aware that many organisations have their own policies around using and contributing to open source software. Please take such policies into account when making use of the distribution and installation tools provided with Python.</p>
+		    </div>
+		  </section>
+		  <section id="Key_Terms" class="main-section">
+		    <header>
+		      <h2>Key Terms</h2>
+		    </header>
+		    <ul>
+		      <li><code>pip</code> is the preferred installer program. Starting with Python 3.4, it is included by default with the Python binary installers.</li>
+		      <li>A virtual environment is a semi-isolated Python environment that allows packages to be installed for use by a particular application, rather than being installed system wide.</li>
+		      <li><code>venv</code> is the standard tool for creating virtual environments, and has been part of Python since Python 3.3. Starting with Python 3.4, it defaults to installing <code>pip</code> into all created virtual environments.</li>
+		      <li><code>virtualenv</code> is a third party alternative (and predecessor) to <code>venv</code>. It allows virtual environments to be used on versions of Python prior to 3.4, which either don’t provide <code>venv</code> at all, or aren’t able to automatically install <code>pip</code> into created environments.</li>
+		      <li>The Python Packaging Index is a public repository of open source licensed packages made available for use by other Python users.</li>
+		      <li>The Python Packaging Authority are the group of developers and documentation authors responsible for the maintenance and evolution of the standard packaging tools and the associated metadata and file format standards. They maintain a variety of tools, documentation, and issue trackers on both GitHub and BitBucket.</li>
+		      <li><code>distutils</code> is the original build and distribution system first added to the Python standard library in 1998. While direct use of <code>distutils</code> is being phased out, it still laid the foundation for the current packaging and distribution infrastructure, and it not only remains part of the standard library, but its name lives on in other ways (such as the name of the mailing list used to coordinate Python packaging standards development).</li>
+		    </ul>
+		    <p>Deprecated since version 3.6: <code>pyvenv</code> was the recommended tool for creating virtual environments for Python 3.3 and 3.4, and is deprecated in Python 3.6.</p>
+		    <p>Changed in version 3.5: The use of <code>venv</code> is now recommended for creating virtual environments.</p>
+		  </section>
+		  <section id="Basic_Usage" class="main-section">
+		    <header>
+		      <h2>Basic Usage</h2>
+		    </header>
+		    <p>The standard packaging tools are all designed to be used from the command line.</p>
+		    <p>The following command will install the latest version of a module and its dependencies from the Python Packaging Index:</p>
+		    <div>
+		      <code class="code-block">python -m pip install SomePackage</code>
+		    </div>
+		    <div>
+		      <p>Note For POSIX users (including Mac OS X and Linux users), the examples in this guide assume the use of a virtual environment.</p>
+		      <p>For Windows users, the examples in this guide assume that the option to adjust the system PATH environment variable was selected when installing Python.</p>
+		    </div>
+		    <p>It’s also possible to specify an exact or minimum version directly on the command line. When using comparator operators such as <code>&gt</code>, <code>&lt</code> or some other special character which get interpreted by shell, the package name and the version should be enclosed within double quotes:</p>
+		    <div>
+		      <pre class="code-block">python -m pip install SomePackage==1.0.4    # specific version
+python -m pip install "SomePackage>=1.0.4"  # minimum version</pre>
+		    </div>
+		    <p>Normally, if a suitable module is already installed, attempting to install it again will have no effect. Upgrading existing modules must be requested explicitly:</p>
+		    <div>
+		      <code class="code-block">python -m pip install --upgrade SomePackage</code>
+		    </div>
+		    <p>More information and resources regarding <code>pip</code> and its capabilities can be found in the Python Packaging User Guide.</p>
+		    <p>Creation of virtual environments is done through the <code>venv</code> module. Installing packages into an active virtual environment uses the commands shown above.</p>
+		  </section>
+		  <section id="How_do_I..." class="main-section">
+		    <header>
+		      <h2>How do I...</h2>
+		    </header>
+		    <div id="prior_to_3.4" class="sub-section">
+		      <header class="sub-title">
+		        <h3>…install <code>pip</code> in versions of Python prior to Python 3.4?</h3>
+		      </header>
+		      <p>Python only started bundling <code>pip</code> with Python 3.4. For earlier versions, <code>pip</code> needs to be “bootstrapped” as described in the Python Packaging User Guide.</p>
+		    </div>
+		    <div id="current_user_only" class="sub-section">
+		      <header class="sub-title">
+		        <h3>…install packages just for the current user?</h3>
+		      </header>
+		      <p>Passing the <code>--user</code> option to <code>python -m pip install</code> will install a package just for the current user, rather than for all users of the system.</p>
+		    </div>
+		    <div id="scientific_packages" class="sub-section">
+		      <header class="sub-title">
+		        <h3>…install scientific Python packages?</h3>
+		      </header>
+		      <p>A number of scientific Python packages have complex binary dependencies, and aren’t currently easy to install using <code>pip</code> directly. At this point in time, it will often be easier for users to install these packages by other means rather than attempting to install them with <code>pip</code>.</p>
+		    </div>
+		    <div id="multiple_parallel_versions" class="sub-section">
+		      <header class="sub-title">
+		        <h3>…work with multiple versions of Python installed in parallel?</h3>
+		      </header>
+		      <p>On Linux, Mac OS X, and other POSIX systems, use the versioned Python commands in combination with the <code>-m</code> switch to run the appropriate copy of <code>pip</code>:</p>
+		      <div>
+		        <pre class="code-block">python2   -m pip install SomePackage  # default Python 2
+python2.7 -m pip install SomePackage  # specifically Python 2.7
+python3   -m pip install SomePackage  # default Python 3
+python3.4 -m pip install SomePackage  # specifically Python 3.4</pre>
+		      </div>
+		      <p>Appropriately versioned <code>pip</code> commands may also be available.</p>
+		      <p>On Windows, use the <code>py</code> Python launcher in combination with the <code>-m</code> switch:</p>
+		      <div>
+		        <pre class="code-block">py -2   -m pip install SomePackage  # default Python 2
+py -2.7 -m pip install SomePackage  # specifically Python 2.7
+py -3   -m pip install SomePackage  # default Python 3
+py -3.4 -m pip install SomePackage  # specifically Python 3.4</pre>
+		      </div>
+		    </div>
+		  </section>
+		  <section id="Common_Installation_Issues" class="main-section">
+		    <header>
+		      <h2>Common Installation Issues</h2>
+		    </header>
+		    <div id="system_python_linux" class="sub-section">
+		      <header class="sub-title">
+		        <h3>Installing into the system Python on Linux</h3>
+		      </header>
+		      <p>On Linux systems, a Python installation will typically be included as part of the distribution. Installing into this Python installation requires root access to the system, and may interfere with the operation of the system package manager and other components of the system if a component is unexpectedly upgraded using <code>pip</code>.</p>
+		      <p>On such systems, it is often better to use a virtual environment or a per-user installation when installing packages with <code>pip</code>.</p>
+		    </div>
+		    <div id="pip_not_installed" class="sub-section">
+		      <header class="sub-title">
+		        <h3><code>pip</code> Not Installed</h3>
+		      </header>
+		      <p>It is possible that pip does not get installed by default. One potential fix is:</p>
+		      <div>
+		        <code class="code-block">python -m ensurepip --default-pip</code>
+		      </div>
+		      <p>There are also additional resources for installing pip.</p>
+		    </div>
+		    <div id="binary_extensions" class="sub-section">
+		      <header class="sub-title">
+		        <h3>Installing binary extensions</h3>
+		      </header>
+		      <p>Python has typically relied heavily on source based distribution, with end users being expected to compile extension modules from source as part of the installation process.</p>
+		      <p>With the introduction of support for the binary wheel format, and the ability to publish wheels for at least Windows and Mac OS X through the Python Packaging Index, this problem is expected to diminish over time, as users are more regularly able to install pre-built extensions rather than needing to build them themselves.</p>
+		      <p>Some of the solutions for installing scientific software that are not yet available as pre-built wheel files may also help with obtaining other binary extensions without needing to build them locally.</p>
+		    </div>
+		  </section>
+		</main>
+	</body>

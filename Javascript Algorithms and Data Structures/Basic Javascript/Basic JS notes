@@ -1,0 +1,372 @@
+//single line comment
+
+/*multi 
+line
+comment*/
+
+/*Types of data:
+-undefined
+-null
+-boolean
+-string
+-symbol
+-number
+-object*/
+
+//useful too: console.log() can be used to check function returns. Like "print" in python console.
+
+var myName; //declares a variable. variables act as a label to store data. Can be any sort of data type. note semicolon, which ends every javascript statement 
+
+// "=" is used to assign variables. Note that the value to the right is resolved and then assigned to the variable to the left.
+
+//example:
+var myVar = 3;
+var theirVar = myVar; //resolves myVar to 3, then assigns to theirVar
+
+//it is common to "initialize" or assign a variable an initial value in its declaration. Not always needed.
+
+//NOTE: remember that every variable needs to be declared. THIS ISN'T PYTHON!
+
+//camelCase is considered best practice for javascript variables.
+
+//"++" is the increment operator. 
+
+i++
+
+//is equal to:
+
+i = i + 1
+
+//and so it is with "--", the decrement operator
+
+//augmented addition operator allows you to modify a variable's value without having to add to itself
+
+myVar += 5
+//would be equal to
+myVar = myVar + 5
+
+//same with -=, *=, /=
+
+//string literals can be encapsulated in single or double quotes.
+
+//backslash can be used as an escape character for quotes.
+
+//if a string starts with one type of quote, you can include the other style without escape characters. Escaping is only needed for the type of quote that opens and closes the string
+
+/*
+Some additional escape characters
+\'	single quote
+\"	double quote
+\\	backslash
+\n	newline
+\r	carriage return
+\t	tab
+\b	backspace
+\f	form feed
+*/
+
+// with strings, "+" concatenates the strings, putting them together.
+
+// "+= serves as similar to augmented addition for concatenation.
+
+//".length" property, when added to the end of a string literal or string variable, will return the length of said string.
+var lengthOfMyName = 0;
+var myName = "Eddy";
+lengthOfMyName = myname.length; //sets lengthOfMyName at 4
+
+//using an integer inside a bracket returns a specific index of a string.
+var firstLetterOfName = "";
+var myName = "Ned";
+firstLetterOfName = myName[0]; //assigns "N" to firstLetterOfName
+
+//strings are immutable. It is impossible to modify a string by reassigning a specific index of its variable. Changing the string value of a variable requires complete reassignment.
+
+//if you want to find the last letter of a string, you can use the .length property. Subtract 1 from the string's length (due to 0 index counting)
+
+var lastLetter = "";
+var firstName = "Charles";
+
+lastLetter = firstName[firstName.length - 1];
+
+//function declares a function. Parentheses on the function name appear to act as the arguments needed. 
+
+function myFunc(myFirstArg, mySecondArg, myLastArg) {
+	var result = "Some string with " + myFirstArg + mySecondArg + myLastArg + " then finishes.";
+	return result;
+}
+
+myFunc("some", " ", "words");
+
+//just an example making use of the wordblank exercise
+
+//an array stores multiple pieces of data. Can be assigned to a single variable. Denoted with brackets, separated by commas
+
+var thisArray = ["Ned", 42];
+
+//arrays can be nested inside other arrays
+
+//use an index to call a specific item in an array
+
+var myArray = [20, 30, 40];
+myArray[0]; //equals 20
+var data = myArray[1]; //equals 30
+
+//arrays are mutable, unlike strings. Changing a particular index will make the change stick for that array if its variable is called
+
+//push() function can append data in arrays.
+
+var array = [1,2,3];
+array.push(4);
+//array now equals [1,2,3,4]
+
+//pop() function removes last item from an array, and is able to be assigned to a new variable
+
+var ourArray = [1,2,3];
+
+var removedFromOurArray = ourArray.pop(); 
+
+// removedFromOurArray now equals 3, and ourArray now equals [1,2]
+
+//shift() function does the same thing for the first item
+
+//unshift() function, with an argument, appends data to the first position of an array. 
+
+var array = [2, 3, 4];
+array.unshift(1);
+//array now equals [1, 2, 3, 4]
+
+//reusable functions are functions containing pieces of code which, when called, are reused.
+
+//define using "function", with reused code listed inside curly brackets
+
+/*On Scope:
+Variables declared outside a function have global scope. 
+If you use a function without first declaring it, it will automatically be global. 
+To avoid issues with this, your code should always declare variables using "var".
+A variable declared within a function definition, or a function parameter, will be local.
+*/
+
+//Local scope will always take precedence over a global scope if variables share the same name.
+
+//note whether you want a function to return a specific value with a "return" statement. If you don't, while inner code is processed, the ultimate value will be undefined when the function is called.
+
+//Boolean datatypes can only be either true or false.
+
+//"if" statements can be used within code to set conditions based on boolean value of its condition.
+
+//example:
+
+function test(myCondition) {
+	if (myCondition) {
+		return "It was true";
+	}
+	return "It was false";
+test(true); //returns "It was true"
+test(false); //returns "It was false"
+
+// "==" equality operator returns true if values on either side are equivalent.
+
+/* BIG IMPORTANT NOTE
+If a number datatype is compared with a string, it will return as true if the numerical value of that string is the same as the number data.
+However, the strict equality operator ( === ) will consider differing data types false and will not convert one datatype to another for comparison.*/
+
+// "!=" the inequality operator returns false when values are equal and vice versa. !== works for strict inequality
+
+//">" and "<" work as expected. Simple >< are not strict and will convert data types.
+
+//">=" "<=" Greater/less than or equal to. Not strict
+
+//"&&" is the logical *and* operator. Evaluates to True if operands on both sides are true.
+
+// "||" the logical *or* operator. Evaluates to True if either operand is true.
+
+//"else" can be chained immediately following an "if" statement to set an alternate result should the conditions of the "if" not be met. "else if" can be chained in for a different condition altogether.
+
+//switch statements can be used as a single line to test for multiple possible conditions. Once a fitting case is matched, use break statement to move to next phase.
+
+switch(num) {
+	case value1:
+		statement1;
+		break;
+	case value2:
+		statement2;
+		break
+//...
+	case valueN;
+		statementN;
+		break;
+	default:	//ensures a default value is used if no matching case presents itself.
+		defaultStatement;
+		break;
+}
+
+//note that case statements will continue to cycle through if no break is encountered. Can be used to accept multiple inputs with one output.
+
+//note that if a function must return a boolean value and utilizes comparisons, comparisons can be directly returned without having to utilize if/else:
+function isEqual(a,b) {
+  if (a === b) {
+    return true;
+  } else {
+    return false;
+  }
+}
+//can be simplified to:
+function isEqual(a,b) {
+  return a === b;
+}
+
+//when a return statement is reached in a function, the program will return to where the function was called. The program will not execute any code that immediately follows the return statement.
+
+/*Objects:
+Similar in nature to arrays.
+Store multiple points of data to a single variable.
+Instead of indexes, they are defined through "properties".
+(Think of keys and items in python dictionaries)*/
+
+//FUN TOOL: If you want to display the entire content of your object but it doesn't work, wrap the object name in "JSON.stringify()". Helped with debugging via console.log() on FCC, which normally just outputs [object object]
+
+var cat = {
+  "name": "Whiskers",
+  "legs": 4,
+  "tails": 1,
+  "enemies": ["Water", "Dogs"]
+};
+
+//note that numbers can be used as properties as well, and that quotations are not needed for single-space property names. 
+
+//individual properties in an object can be accessed either through bracket( [] ) notation or dot ( . )
+
+//Dot notation is used when the name of the object is known.
+
+var someObject = {
+  property1: "value1",
+  property2: "value2"
+};
+
+var prop1val = someObject.property1 //value1
+var prop1val = someObject.property2 //value2
+
+//note that no quotes are needed for dot notation. Only works for names with no spaces.
+
+//For any properties with spaces, bracket notation should be used. wrap property name in quotation marks.
+
+/*
+bracket notation also can be used to call a variable that stores the property name. Can be useful if the property name ends up being procedurally generated. See the following two examples for usage:
+*/
+
+var dogs = {
+  Fido: "Mutt", Hunter: "Doberman", Snoopie: "Beagle"
+};
+var myDog = "Hunter";
+var myBreed = dogs[myDog];
+console.log(myBreed); // "Doberman"
+
+var someObj = {
+  propName: "John"
+};
+function propPrefix(str) {
+  var s = "prop";
+  return s + str;
+}
+var someProp = propPrefix("Name"); // someProp now holds the value 'propName'
+console.log(someObj[someProp]); // "John"
+
+//Reassignment for object properties can be occur just like variables, making use of bracket or dot notation.
+
+var myObj {
+  "name": "Fran",
+  "birthday": "Nov 3",
+}
+
+myObj.name = "Francisco"
+
+//One can also add new properties in a similar fashion, by specifying a new property and assigning it.
+
+//using "delete" to remove a property.
+
+delete myDog.tails
+delete myDog["tails"]
+
+//to see if an object has a property, use the ".hasOwnProperty(propname)" method on an object.
+
+var myObj = {
+  top: "hat",
+  bottom: "pants"
+};
+myObj.hasOwnProperty("top"); // true
+myObj.hasOwnProperty("middle"); // false
+
+/* Complex Data:
+arrays and objects can be nested within one another to create varying layers of data. When accessing within multiple layers of an object, you can chain together dot and bracket notation as needed to access specific pieces of data.
+*/
+
+var ourStorage = {
+  "desk": {
+    "drawer": "stapler"
+  },
+  "cabinet": {
+    "top drawer": { 
+      "folder1": "a file",
+      "folder2": "secrets"
+    },
+    "bottom drawer": "soda"
+  }
+};
+ourStorage.cabinet["top drawer"].folder2; // "secrets"
+ourStorage.desk.drawer; // "stapler"
+
+//Brief interlude to marvel at your completion of this difficult challenge:
+
+// Setup
+var collection = {
+  "2548": {
+
+    "album": "Slippery When Wet"      
+    "artist": "Bon Jovi",
+    "tracks": [
+      "Let It Rock",         
+      "You Give Love a Bad Name"       
+    ]
+  },
+  "2468": {  
+    "album": "1999",
+    "artist": "Prince",
+    "tracks": [ 
+      "1999", 
+      "Little Red Corvette" 
+    ]
+  },
+  "1245": {  
+    "artist": "Robert Palmer",
+    "tracks": [ ]
+  },
+  "5439": {  
+    "album": "ABBA Gold"
+   }
+};
+// Keep a copy of the collection for tests
+var collectionCopy = JSON.parse(JSON.stringify(collection));
+
+// Only change code below this line
+function updateRecords(id, prop, value) {
+  if (value === "") {
+    delete collection[id][prop];
+    return collection;
+  } else if (collection[id].hasOwnProperty("tracks") === false) {
+    collection[id]["tracks"] = [];
+  } else if (collection[id].hasOwnProperty(prop) === false) {
+    collection[id][prop] = "";
+  }
+  switch (prop) { 
+    case "album":
+    case "artist":
+      collection[id][prop] = value;
+      break;
+    case "tracks":
+      collection[id]["tracks"].push(value);
+  }
+  return collection;
+}
+
+//Interlude over. Get crackin' again...
+//Lesson learned in this interlude: Bracket notation is far more secure in keeping your various data levels in check.

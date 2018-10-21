@@ -1,0 +1,66 @@
+CSS Grids- a quick and easy way to organize the content of a webpage.
+
+Grid manipulation is dependent on the "container" element, which is the parent where the grid is formed, and the "items", the children elements contained inside.
+
+display: grid; /*attribute to turn a parent into a grid*/
+
+
+"grid-template-columns" - attribute designates the number and size of columns. Attribute takes sizes in absolute and relative units, and each individual unit printed counts for one column.
+e.g. grid-template-columns: 10px 20px 30px; makes 3 columns of those sizes.
+
+"grid-template-rows" does the same for rows. 
+
+in addition to absolute units, relative units can also be used, such as %, which applies percentage of available parent-space. Also fractional "fr" units can be used. fr denotes the fractional, proportional remainder of space in relation to other sizes.
+Example: grid-template-columns: 2fr 1fr; creates two columns, the first of which is twice the size of the second one.
+
+"grid-column-gap" and "grid-row-gap" denote the space between rows and columns. 
+"grid-gap" can be used to do both quickly. If given one value, it will apply the space both horizontally and vertically. If given two values, the first value will apply to space between rows while the second value will apply space between columns.
+
+"grid-column" is used on an item to set where it starts and ends. utilizes numerical values for the dividing lines of rows and columns to define beginning and endpoints.
+grid-column: 1/3; would denote an item that occupies the first two columns of its grid.
+
+"grid-row" utilizes the same usage.
+
+"justify-self" horizontally aligns the content of an item within its individual cell. (some) usable values: stretch(default), start, end, center
+
+"align-self" vertically aligns content of an item within its cell. Same values can apply.
+
+Container can use "justify-items" and "align-items" for uniform alignment across all contents.
+
+"grid-template-areas" can be used to group cells into associated groups. 
+Usage example:
+grid-template-areas:
+  "header header header"
+  "advert content content"
+  "footer footer footer";
+"." can designate an empty cell.
+After a grid area template has been defined, individual items can be given a corresponding "grid-area" attribute to space it appropriately.
+"grid-area" can also be used without a template. To designate, usage utilizes grid column and row line numbers for starts and ends:
+grid-area: starting-horizontal-line / starting-vertical-line / ending-horizontal-line / ending-vertical-line;
+e.g. item1 {grid-area: 1/1/2/4;}
+
+Grid structure can be defined with a repeat function. 
+Examples:
+grid-template-rows: repeat(100, 50px); /*100 rows, each 50px in height*/
+grid-template-columns: repeat(2, 1fr 50px) 20px; /*5 columns total, the first and third 1fr wide, the second and fourth 50px wide, and the fifth 20px*/
+
+
+Another possible value for grid structure is the minmax function, which defines a minimum and maximum size for the column/row in the event the container shifts in size.
+Example:
+grid-template-columns: 100px minmax(50px, 200px); /*two columns, first of which is 100px wide, and the second of which could range from 50px to 200px*/
+
+
+For "repeat", instead of a specific number of repetitions, "auto-fill" can also be used to automatically insert columns and rows of appropriate size as needed. (Can be a very powerful tool combined with minmax)
+Auto-fit will not create new columns/rows, but instead collapses empty rows/columns to stretch items to fit (seems to need to be used in conjunction with fr units for proper functionality)
+
+CSS grids work well in conjunction with media inquiries. 
+
+It is also possible to have grids inside of grids.
+
+
+
+
+
+
+
+

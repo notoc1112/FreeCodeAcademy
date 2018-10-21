@@ -1,0 +1,20 @@
+    <section id="Common_Installation_Issues" class="main-section">
+      <header>
+        <h2>Common Installation Issues</h2>
+      </header>
+      <div id="system_python_linux">
+        <header>
+          <h3>Installing into the system Python on Linux</h3>
+        </header>
+        <p>On Linux systems, a Python installation will typically be included as part of the distribution. Installing into this Python installation requires root access to the system, and may interfere with the operation of the system package manager and other components of the system if a component is unexpectedly upgraded using <code>pip</code>.</p>
+        <p>On such systems, it is often better to use a virtual environment or a per-user installation when installing packages with <code>pip</code>.</p>
+      </div>
+      <div id="pip_not_installed">
+        <header>
+          <h3><code>Pip</code> Not Installed</h3>
+        </header>
+        <p>It is possible that pip does not get installed by default. One potential fix is:</p>
+        <div>
+          <code>python -m ensurepip --default-pip</code>
+        </div>
+        <p>There are also additional resources for installing pip.</p>

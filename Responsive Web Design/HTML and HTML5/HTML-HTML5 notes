@@ -1,0 +1,75 @@
+HTML/HTML5 Notes:
+
+<!DOCTYPE html)> ---mandatory at the top of all docs.
+<html> wraps around entirety of your page's content and code
+</html>
+
+<head> element for metadata elements (link,  meta, title, style)
+</head>
+
+<!--
+comment out code
+-->
+
+<body> element for displayed content for users</body>
+
+<h(1-6)>Header Element goes here</h(1-6)>
+(
+
+<p>This is a paragraph element (Text strings basically)</p>
+
+<main> Wraps around primary content of page </main>(paragraphs, images, not headers and footers?)
+
+<div>division element, a general purpose container for other elements.(it is very commonly used, they say)</div>
+
+<img src="http://urltomyimage.com" alt="Text describing image(if it doesn't load">
+
+Anchor Elements - Link to other webpages or to content on your own site
+target="_blank" opens link in new tab
+href="#" -dead link
+Can also nest around elements like images
+
+<a href="http://urltodestination.com/" target="_blank">Text of link</a> (external)
+
+<a href="destination-url">Text of link</a>
+...
+<element id="destination id">Element Text</element>
+
+unordered lists (multiple lines with bullet points)
+<ul>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+</ul>
+
+ordered/numbered lists nest in <ol></ol>
+
+<input type="text" placeholder="enter placeholder text here"> 
+input element for users to enter text
+input types:
+    "text"
+    "radio"
+    "checkbox"
+additional input attributes:
+    required- makes completion mandatory prior to submission
+	checked - makes specific input selected at start
+
+form element
+<form action="/url-for-form-submission-destination">
+form content (<inputs><buttons>)
+</form>
+
+<button type="submit"(or other types)>Text for your button goes here</button>
+
+Example of a form with various inputs:
+<form action="/submit-cat-photo">
+    <label for="indoor"><input id="indoor" type="radio" name="indoor-outdoor"> Indoor</label>
+    <label for="outdoor"><input id="outdoor" type="radio" name="indoor-outdoor"> Outdoor</label><br>
+    <label for="indignant"><input id="indignant" type="checkbox" name="personality">Indignant</label>
+    <label for="snooty"><input id="snooty" type="checkbox" name="personality">Snooty</label>
+    <label for="conniving"><input id="conniving" type ="checkbox" name="personality">Conniving</label><br>
+    <input type="text" placeholder="cat photo URL" required>
+    <button type="submit">Submit</button>
+</form>
+
+<br> - break point (newline, basically?)
