@@ -370,3 +370,60 @@ function updateRecords(id, prop, value) {
 
 //Interlude over. Get crackin' again...
 //Lesson learned in this interlude: Bracket notation is far more secure in keeping your various data levels in check.
+
+//while loops take a condition and loop the code so long as the conditions are met.
+
+var thisArray = [];
+var i = 0;
+while(i < 4) {
+  thisArray.push(i);
+  i++;
+} //thisArray === [0,1,2,3]
+
+//the same thing can be done with a for loop:
+
+var thisArray = [];
+for (var i = 0; i < 4; i++) {
+  thisArray.push(i)
+}
+
+//a for loop has three optional expressions at its time of definition:
+
+for([initialization]; [condition]; [final-expression])
+
+/*
+initialization establishes loop variable.
+condition is evaluated at the start of every loop, and continues so long as it evaluates to true, and final expression is tacked onto the end of each loop before returning to the condition for another loop. 
+final-expression is generally used to increment or decrement as needed from the loop variable to fix the length of loops.
+*/
+
+//for loops can iterate over arrays as well as variable increments, by making use of the array.length method.
+
+var arr = [10,9,8,7,6];
+for (var i = 0; i < arr.length; i++) {
+   console.log(arr[i]);
+}
+
+//for loops can be nested inside other for loops, which is useful for accessing multi-layered array data.
+
+//a handy example
+
+var arr = [
+  [1,2], [3,4], [5,6]
+];
+for (var i=0; i < arr.length; i++) {
+  for (var j=0; j < arr[i].length; j++) {
+    console.log(arr[i][j]);
+  }
+}
+
+//a do...while loop functions similarly to a while loop, looping so long as a certain condition is met. However, with the "do" at the start, it ensures the code is run through at least once, even if a condition check fails.
+
+var ourArray = []; 
+var i = 5;
+do {
+  ourArray.push(i);
+  i++;
+} while (i < 5); //because i was initialized a 5, it will not loop further, but the array WILL be populated thanks to one loop of the code first.
+
+
