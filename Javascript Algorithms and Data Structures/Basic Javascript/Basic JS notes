@@ -426,4 +426,44 @@ do {
   i++;
 } while (i < 5); //because i was initialized a 5, it will not loop further, but the array WILL be populated thanks to one loop of the code first.
 
+/* Random Number Generation (math functions?)
+the Math.random() function generates a random number between 0 and 1.
+Math.floor() rounds a number down to its nearest full number. 
+Utilizing Math.floor() in combination with multiplying returned value can help to generate various whole numbers.
+Math.random() will never return a 1, and will only return values just shy of 1. Likewise, whatever large number you multiply Math.random() by, it will never return that highest value. 
+*/
 
+//To return a random whole number that falls between two values, use the following formula:
+
+Math.floor(Math.random() * (max - min + 1)) + min
+
+//parseInt() is a function that parses a string and returns an integer. If taking a single argument, that argument would be the string to check for an integer.
+
+var a = parseInt("007"); //a equals 7
+
+//parseInt() can take a second argument, for the radix. This argument specifies the base of the number in the string. 
+
+var a = parseInt("11", 2); //this states that "11" is in base 2, or binary, and converts the string to the integer 3.
+
+//conditional, or ternary, operators can be used to simplify if-else operations to a single-line extpression.
+
+condition ? statement-if-true : statement-if-false;
+
+//for example:
+
+function findGreater(a, b) {
+  if(a > b) {
+    return "a is greater";
+  }
+  else {
+    return "b is greater";
+  }
+}
+
+//can be writen as:
+
+function findGreater(a, b) {
+  return a > b ? "a is greater" : "b is greater";
+}
+
+//Can be chained in multiples to fulfill the needs for else-if clauses, utilizing additional "?" operators to clarify additional "if" conditions"
