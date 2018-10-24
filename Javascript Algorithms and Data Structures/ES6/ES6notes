@@ -1,1 +1,68 @@
 
+//ES6
+
+/*
+From intro:
+
+ECMAScript is a standardized version of JavaScript with the goal of unifying the language's specifications and features. As all major browsers and JavaScript-runtimes follow this specification, the term ECMAScript is interchangeable with the term JavaScript.
+
+Most of the challenges on freeCodeCamp use the ECMAScript 5 (ES5) specification of the language, finalized in 2009. But JavaScript is an evolving programming language. As features are added and revisions are made, new versions of the language are released for use by developers.
+
+The most recent standardized version is called ECMAScript 6 (ES6), released in 2015.
+*/
+
+//if the same variable is declared multiple times using "var", no error shows itself, which can be tricky for larger programs. declaring a variable with "let" remedies this by returning an error if the same variable is declared multiple times.
+
+//strict mode: to activate, run the string "use strict" in your code (placement? top of individual functions? Or will declaring once activate for whole program?)
+
+//"let" also has a slightly more refined scope. It is limited to the block, statement, or expression within which it is declared.
+
+function checkScope() {
+"use strict";
+  let i = "function scope";
+  if (true) {
+    let i = "block scope";
+    console.log("Block scope i is: ", i);
+  }
+  console.log("Function scope i is: ", i);
+  return i;
+}
+
+//"const" can also be used to declare variables. In addition to refined scope, variables declared with const are read-only, and cannot be reassigned.
+
+//(BEST PRACTICES: use all caps for const variables to distinguish them from the rest of your program)
+
+//a note on mutability: Objects, including arrays and functions, are still mutable. So even though a declared "const" variable cannot be changed, mutable objects those variables are assigned to can still be adjusted.
+
+//To prevent object mutation, pass the object's variable to the function "Object.freeze()"
+
+/*
+Arrow functions:
+Often, for smaller functions that are passed as variables to other functions, the way to avoid naming those functions is with the following syntax:
+*/
+
+const myFunc = function() {
+  const myVar = "value";
+  return myVar;
+}
+
+//but as an alternative, ES6 allows the use of arrow functions:
+
+const myFunc = () => {
+  const myVar = "value";
+  return myVar;
+}
+
+//this is further simplified if the function has no body, only a return value. 
+
+const myFunc = () => "value"
+
+//by this method, you don't even need brackets or to specify the return action.
+
+//arguments can also be passed to these simplified arrow functions:
+
+const doubler = (item) => item * 2; // doubles input value and returns it
+
+//arrow functions work well with high-level functions such as map(), filter() and reduce(). This challenge was hard, so... just... keep the documentation on these three function handy. They're useful but this was a leap up.
+
+//when creating a function, one can set a default value to fall back on if no argument is provided upon function call.
