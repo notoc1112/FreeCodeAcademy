@@ -1,4 +1,4 @@
-# FreeCodeAcademy
+# FreeCodeCamp
 
 This is a repository to hold all of Edward's notes from his progress through the FreeCodeCamp program.
 These notes are for personal reference and may be prone to errors.
