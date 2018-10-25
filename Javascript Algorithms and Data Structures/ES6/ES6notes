@@ -11,6 +11,8 @@ Most of the challenges on freeCodeCamp use the ECMAScript 5 (ES5) specification 
 The most recent standardized version is called ECMAScript 6 (ES6), released in 2015.
 */
 
+//NOTE: Lots of new concepts abruptly dropped in this section. Spend some time in the MDN documentation after you finish this section to keep yourself thinking on these concepts.
+
 //if the same variable is declared multiple times using "var", no error shows itself, which can be tricky for larger programs. declaring a variable with "let" remedies this by returning an error if the same variable is declared multiple times.
 
 //strict mode: to activate, run the string "use strict" in your code (placement? top of individual functions? Or will declaring once activate for whole program?)
@@ -66,3 +68,69 @@ const doubler = (item) => item * 2; // doubles input value and returns it
 //arrow functions work well with high-level functions such as map(), filter() and reduce(). This challenge was hard, so... just... keep the documentation on these three function handy. They're useful but this was a leap up.
 
 //when creating a function, one can set a default value to fall back on if no argument is provided upon function call.
+
+//if a function needs to take an undetermined number of arguments, the rest operator allows for this. 
+
+function howMany(...args) {
+  return "You have passed " + args.length + " arguments.";
+}
+console.log(howMany(0, 1, 2)); // You have passed 3 arguments
+console.log(howMany("string", null, [1, 2, 3], { })); // You have passed 4 arguments.
+
+//args are stored as an array that can then be acted on within the function.
+
+//another application of the args operator.
+
+const sum = (function() {
+  "use strict";
+  return function sum(...args) {
+    return args.reduce((a, b) => a + b, 0);
+  };
+})();
+console.log(sum(1, 2, 3)); // 6
+
+//the "three dots" also serves as a "spread" operator for an array, allowing the contents of an array to be "spread out" as individual arguments.
+
+
+//Destructuring Assignment is a similar "spreading process" for objects, which allows for neat assignment of variables directly from objects.
+
+//Instead of:
+
+var voxel = {x: 3.6, y: 7.4, z: 6.54 };
+var x = voxel.x; // x = 3.6
+var y = voxel.y; // y = 7.4
+var z = voxel.z; // z = 6.54
+
+//one can  use: 
+
+var voxel = {x: 3.6, y: 7.4, z: 6.54 };
+const { x, y, z } = voxel; // x = 3.6, y = 7.4, z = 6.54
+
+//for additional reassignment to alternate variables, one can use:
+
+const { x : a, y : b, z : c } = voxel; // a = 3.6, b = 7.4, c = 6.54
+
+//Destructuring assignment on nested objects:
+
+const a = {
+  start: { x: 5, y: 6},
+  end: { x: 6, y: -9 }
+};
+const { start : { x: startX, y: startY }} = a;
+console.log(startX, startY); // 5, 6
+
+//Destructuring with an array:
+
+const [a, b] = [1, 2, 3, 4, 5, 6];
+console.log(a, b); // 1, 2
+
+//Destructuring can be used in combination with rest operator to effectively "slice" an array, generating a new sub array:
+
+const [a, b, ...arr] = [1, 2, 3, 4, 5, 7];
+console.log(a, b); // 1, 2
+console.log(arr); // [3, 4, 5, 7]
+
+//rest operator ONLY works at the end of an array... so alternate slicing methods may be needed for internal array slicing...
+
+
+
