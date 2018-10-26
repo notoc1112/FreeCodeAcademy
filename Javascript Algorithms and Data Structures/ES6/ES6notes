@@ -133,4 +133,21 @@ console.log(arr); // [3, 4, 5, 7]
 //rest operator ONLY works at the end of an array... so alternate slicing methods may be needed for internal array slicing...
 
 
+//destructuring assignment can also work with individual object attributes being passed to a function as its argument.
 
+const profileUpdate = ({ name, age, nationality, location }) => {
+  /* do something with these fields */
+}
+
+//functions the same as:
+
+const profileUpdate = (profileData) => {
+  const { name, age, nationality, location } = profileData;
+  // do something with these variables
+}
+
+//...without the need to declare the individual variables as values from the object. Remember to first set a function variable and then create the function inside to specify the passed attributes (I think??? THIS MAKES NO SENSE AS OF 10.26.18
+
+/*Template Literals: 
+ES6 features template literals, special multi-line strings with interpolation features.
+Template literals are wrapped in backticks (`) instead of quotes (', "). Variables and object values can be inserted into the string by wrapping the variable like so: ${variable}. Useful as this removes the need for concatenation. 
