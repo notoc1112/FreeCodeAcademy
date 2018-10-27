@@ -1,0 +1,12 @@
+//Regular expressions are used for pattern matching in strings.
+
+//To set a pattern to match, create a regex variable with the pattern wrapped in single slashes.
+
+let helloRegex = /hello/
+
+//using the test method on a regex with a string returns true or false.
+
+let testStr = "hello world!"
+helloRegex.test(testStr) //returns True
+
+//note that the regex phrase is case sensitive. 
