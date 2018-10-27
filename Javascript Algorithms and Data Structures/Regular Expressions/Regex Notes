@@ -2,11 +2,121 @@
 
 //To set a pattern to match, create a regex variable with the pattern wrapped in single slashes.
 
-let helloRegex = /hello/
+let helloRegex = /hello/;
 
 //using the test method on a regex with a string returns true or false.
 
-let testStr = "hello world!"
-helloRegex.test(testStr) //returns True
+let testStr = "hello world!";
+helloRegex.test(testStr); //returns True
 
 //note that the regex phrase is case sensitive. 
+
+//match method returns an array with desired matches. Call match method on desired string and pass regex as the argument:
+
+testStr.match(helloRegex); //returns ["hello"]
+
+//use "|" to separate different regex possibilities
+
+let answerRegex = /yes|no/;
+
+//ignorecase flag can be used to ignore whether a string's letters are upper or lower case. Flags can be tagged to the end of an expression.
+
+let campRegex = /freecodecamp/i; //will accept freeCodeCamp, FREECODECAMP, etc...
+
+//global flag allows the return of all matches instead of JUST the first match:
+
+let theRegex = /the/g;
+
+//the wildcard character, ".", matches with any possible character in the expression
+
+let utRegex = /.ut/; //can match "but" "cut" "gut", etc
+
+//one can also specify specific characters or range of characters to match for:
+
+let oneRegex = /[1]/;
+
+let vowelRegex = /[aeiou]/;
+
+alphabetRegex = /[a-z]/;
+
+//following your expression with a "+" will check for one or more occurrences of that character. following with "*" will return 0 or more occurrences.
+
+//to negate or exclude characters to match for, precede the bracket of your expression with "^".
+
+let noVowelRegex = /[^aeiou]/; //will match everything that is not a vowel.
+
+//by default, regex matching is "greedy", meaning it will return the longest possible match for its expression. 
+
+let tiRegex = /t[a-z]*i/; 
+"titanic".match(tiRegex); //returns ["titani"]
+
+//use "lazy" matching character ("?")to return the shortest possible match.
+
+let lazyTi = /t[a-z]*?i/;
+"titanic".match(lazyTi); //returns ["ti"]
+
+//caret (^), while used for exclusions inside brackets, serves another purpose. As part of the regular expression, it is used to identify patterns at the beginning of strings.
+
+let helloRegex = /^hello/;
+let firstStr = "hello world";
+let secondStr = "you say goodbye and I say hello";
+helloRegex.test(firstStr) //returns true
+helloRegex.test(secondStr) //returns false
+
+//the dollar sign ($) is used, likewise, to represent patterns at the end of strings.
+
+// use the character "\w" as a shortcut to represent all numbers, letters, and the underscore(_). \W serves as an exclusionary, excluding all alphanumeric characters.
+
+//in other words: \w is the same as [a-zA-Z0-9_], while \W is the same as [^a-zA-Z0-9_]
+
+//to match numbers, use \d. \D matches all non-numbers
+
+//\s is for whitespace
+
+//quantity specifiers (contained in curly brackets) can be used to specify a specific number of matches, or a specific range. Ranges are expressed as a lower and higher range separated by comma.
+
+let A4 = "aaaah";
+let A2 = "aah";
+let multipleA = /a{3,5}h/;
+multipleA.test(A4); // Returns true
+multipleA.test(A2); // Returns false
+
+//leaving out a lower or upper bound makes the pattern match for the maximum or minimum number as needed. Exact matches can be made by listing only one number and no comma.
+
+//the "?" operator (lazy matching) can essentially function as a way of matching for a character that may or may not be present.
+
+let american = "color";
+let british = "colour";
+let rainbowRegex= /colou?r/;
+rainbowRegex.test(american); // Returns true
+rainbowRegex.test(british); // Returns true
+
+//lookaheads are ways of checking for patterns without matching them. a positive lookahead (?=...) checks to see if the pattern is present while a negative (?!...) checks to make sure the pattern is omitted.
+
+//capture groups can be used to identify substrings that repeat. contain any substring that you're looking for repetition of in parentheses. Then, to identify various groups that may repeat, use a backslash and a number to identify that group.
+
+//first example:
+
+let repeatStr = "regex regex";
+let repeatRegex = /(\w+)\s\1/;
+repeatRegex.test(repeatStr); // Returns true
+repeatStr.match(repeatRegex); // Returns ["regex regex", "regex"]
+
+//second example:
+
+let repeatNum = "42 42 42";
+let reRegex = /^(\d+)\s\1\s\1$/;
+let result = reRegex.test(repeatNum);
+
+//capture groups can also be used to replace specific strings. 
+
+let wrongText = "The sky is silver.";
+let silverRegex = /silver/;
+wrongText.replace(silverRegex, "blue");
+// Returns "The sky is blue."
+
+//if you want to use a specific capture group as the replacement, list the number with a dollar sign before it in the replace method.
+
+"Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1');
+// Returns "Camp Code"
+
