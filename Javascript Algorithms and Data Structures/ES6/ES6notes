@@ -151,3 +151,38 @@ const profileUpdate = (profileData) => {
 /*Template Literals: 
 ES6 features template literals, special multi-line strings with interpolation features.
 Template literals are wrapped in backticks (`) instead of quotes (', "). Variables and object values can be inserted into the string by wrapping the variable like so: ${variable}. Useful as this removes the need for concatenation. 
+*/
+
+//example:
+const person = {
+  name: "Zodiac Hasbro",
+  age: 56
+};
+
+// Template literal with multi-line and string interpolation
+const greeting = `Hello, my name is ${person.name}!
+I am ${person.age} years old.`;
+
+console.log(greeting); // prints
+// Hello, my name is Zodiac Hasbro!
+// I am 56 years old.
+
+//It is possible to simply declare object attributes in a single line with ES6, using the arrow function.
+
+const getMousePosition = (x, y) => ({ x, y });
+
+//which simplifies:
+
+const getMousePosition = (x, y) => ({
+  x: x,
+  y: y
+});
+
+//Functions within objects can be declared without a function keyword, like so:
+
+const person = {
+  name: "Taylor",
+  sayHello() {
+    return `Hello! My name is ${this.name}.`;
+  }
+};
