@@ -1,1 +1,17 @@
+//console.log() is a very useful tool for checking parts of your code. Insert throughout to make sure outputs go as expected.
 
+//in the browser console, if console.log() is typed into the browser text editor, the console will print print the log and run another print for any function calls... sometimes resulting in an output appearing twice. console.clear() clears the console.
+
+//call "typeof" in a console.log to evaluate the data type of a given piece of data.
+
+/*common issues to watch for:
+-Misspellings (using console.log() and typeof can clarify whether variables have been mispelled or miscapitalized)
+-missing brackets, parentheses, quotes, etc (when coding in a normal text editor, type open and close pairs first, then code in between.)
+-check quotation types. Either use different styles for quotations contained inside strings, or use escape characters.
+-don't mistake "=" for "==" or "===" when managing flow control for conditional functions.
+-direct function calls require parentheses, even if they don't take any arguments.
+-check the order of your called arguments
+-remember that indexing starts at zero, so the last index of an array will always be one less than its length.
+-be sure to check whether certain variables need to be re-initialized when loops inside of loops occur.
+-DO NOT INITIATE INFINITE LOOPS. THESE ARE DANGEROUS AND MAY CRASH YOUR BROWSER. Always ensure loops you write have a valid termination condition.
+*/
