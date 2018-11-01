@@ -1,0 +1,27 @@
+function titleCase(str) {
+//regex to pull words into array
+  let wordRegex = /(?=\s*)?\w+[',.]*\w*(?=\s*)?/gi;
+  let workingArr = str.match(wordRegex);
+//loop to titlecase all words
+  for (let i = 0; i < workingArr.length; i++) {
+    let wordArr = []
+    let newWord = ''
+    workingArr[i] = workingArr[i].toLowerCase();
+    wordArr = [...workingArr[i]];
+    wordArr.splice(0, 1, workingArr[i][0].toUpperCase());
+    for (let j = 0; j < wordArr.length; j++) {
+      newWord += wordArr[j];
+    }
+    workingArr[i] = newWord;
+  }
+//concantenation
+  let newPhrase = '';
+  for (let k = 0; k < workingArr.length - 1; k++){
+    newPhrase += workingArr[k];
+    newPhrase += ' ';
+  }
+  newPhrase += workingArr[workingArr.length - 1];
+  return newPhrase;
+}
+
+console.log(titleCase("I'm a little tea pot"));
