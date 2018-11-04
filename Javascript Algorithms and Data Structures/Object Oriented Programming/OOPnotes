@@ -1,0 +1,26 @@
+//Objects Overview;
+
+//(Food for thought) Objects can be conceptualized as counterparts to literal real-world objects, which all have their own unique properties.
+
+let dog = {
+  name: "Spot",
+  numLegs: 4
+};
+
+//Individual object properties can be accessed using dot notation on the object.
+
+console.log(dog.name);//prints "Spot"
+
+console.log(dog.numLegs); //prints 4
+
+//a method is a function that is one of an object's properties. 
+
+let dog = {
+  name: "Spot",
+  numLegs: 4,
+  sayLegs: function() {return "This dog has " + dog.numLegs + " legs."}
+};
+
+dog.sayLegs();
+
+//note how the method is called, similar to properties.
