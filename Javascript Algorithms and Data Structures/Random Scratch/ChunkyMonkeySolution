@@ -1,0 +1,13 @@
+function chunkArrayInGroups(arr, size) {
+  let newArr = [];
+  function spliceProcess(array, newSize) {
+    let workingArr = array.splice(0, newSize);
+    newArr.push(workingArr);
+  }
+  while (arr.length > 0) {
+    spliceProcess(arr, size);
+  }
+  return newArr;
+}
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
