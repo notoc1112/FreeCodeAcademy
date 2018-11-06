@@ -1,0 +1,22 @@
+//Functional Programming is the work philosphy around programs built of simple isolated functions.
+
+/*
+Per FCC, Functional Programming is about:
+1) Isolated functions - there is no dependence on the state of the program, which includes global variables that are subject to change
+
+2) Pure functions - the same input always gives the same output
+
+3) Functions with limited side effects - any changes, or mutations, to the state of the program outside the function are carefully controlled
+*/
+
+//INPUT -> PROCESS -> OUTPUT
+
+//A callback is a function that is passed to another function to determine its invocation. (Think filter()
+
+//A first class function is any function that can be assigned a variable, passed to another function, or returned from another function. (Every JS function is a first class function)
+
+//A higher order function is one that takes a function as an argument.
+
+//A lambda refers to a function that is passed to another function or is returned from another function
+
+//
