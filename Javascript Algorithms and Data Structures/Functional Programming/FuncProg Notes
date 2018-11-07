@@ -19,4 +19,7 @@ Per FCC, Functional Programming is about:
 
 //A lambda refers to a function that is passed to another function or is returned from another function
 
-//
+//Changes to pieces of data is a surefire way to put one in a position of dealing with bugs. Always aim to keep inputs and datasets unchanged, especially if they are global data sets. "Change as little as possible"
+
+//when writing functions, it is important to also be explicit in dependencies. Write functions as isolated code so that they can be tested independently and so that they don't depend on global values elsewhere in your program.
+
